@@ -1,0 +1,23 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" class="fullWidth">
+        <h1>
+            Sign in
+        </h1>
+        <div class="form-content">
+            <input id="username" name="username" [(ngModel)]="username" placeholder="user name" type="text"
+                #UserNameControl="ngModel" required />
+            <div [hidden]="UserNameControl.valid || UserNameControl.pristine" class="alert alert-danger">
+                Name is required
+            </div>
+            <input id="password" name="password" required [(ngModel)]="password" placeholder="password" type="password"
+                #PasswordControl="ngModel" />
+            <div [hidden]="PasswordControl.valid || PasswordControl.pristine" class="alert alert-danger">
+                Password is required
+            </div>
+            <br />
+            <div>
+                <button type="submit" class="button">Log In</button>                
+            </div>
+        </div>
+    </form>
+</div>

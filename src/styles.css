@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+.fullWidth {
+  width: 100%;
+}
+
+.width70 {
+  width: 70%;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.black {
+  color: black;
+}
+
+.flexDisplay {
+  display: flex;
+}
+
+.wheatBackgrnd {
+  background-color: wheat !important;
+}
+
+.divBorderBlack {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.divFlexRow {
+  flex-flow: row;
+  justify-content: space-evenly;
+  padding: 1%;
+  flex: 1;
+  color: brown
+}
+
+.flexHeaderBlack {
+  flex: 1;
+  color: black;
+}
+
+h1 {
+  font-weight: 700;
+  color: #384047;
+  text-align: center;
+  line-height: 1.5em;
+  margin-top: 0.2em;
+}

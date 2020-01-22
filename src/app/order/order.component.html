@@ -1,0 +1,119 @@
+<div class="container">
+    <form (submit)="onSubmit()" class="fullWidth wheatBackgrnd">
+        <div class="flexDisplay fullWidth">
+            
+            <div class="flexHeaderBlack3" style="flex: 0.3;">
+
+            </div>
+            <div class="flexHeaderBlack">
+                <h1>Your Order</h1>
+            </div>
+            <div>
+                <span class="flexHeaderBlack">Hello Vivek
+                    <a href="#">(Log Out)</a>
+                </span>
+            </div>
+        </div>
+        <div>
+            <div class="divBorderBlack">
+                <div class="flexDisplay">
+                    <div class="divFlexRow">
+                        <label>Order No:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <label>#P198354</label>
+                    </div>
+
+                    <div class="divFlexRow">
+                        <label>Date:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <label>{{dateValue| date:'medium' }}</label>
+                    </div>
+                </div>
+                <div class="flexDisplay">
+                    <div class="divFlexRow">
+                        <label>Customer Name:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <input type="text">
+                    </div>
+                    <div class="divFlexRow">
+                        <label>Phone Number:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="flexDisplay">
+                    <div class="divFlexRow">
+                        <label>Address:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <input type="text">
+                    </div>
+                    <div class="divFlexRow">
+                        <label>City:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="flexDisplay">
+                    <div class="divFlexRow">
+                        <label>State:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <input type="text">
+                    </div>
+                    <div class="divFlexRow">
+                        <label>Zip Code:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top: 5%;">
+            <div style="display:flex;">
+                <div class="flex-row-head">Name</div>
+                <div class="flex-row-head">Price</div>
+                <div class="flex-row-head">Quantity</div>
+                <div class="flex-row-head">Total</div>
+            </div>
+            <div *ngFor="let items of orderItems"
+                style="display:flex; justify-content: space-evenly; font-weight: normal;" class="flex-flow: row wrap;">
+                <div style="flex:1" class="flex-row">
+                    {{items.Name}}
+                </div>
+                <div style="flex:1" class="flex-row">
+                    {{items.Price}}
+                </div>
+                <div style="flex:1" class="flex-row">
+                    {{items.Quantity}}
+                </div>
+                <div style="flex:1" class="flex-row">
+                    ${{(items.Price * items.Quantity).toFixed(2)}}
+                </div>
+            </div>
+            <div style="padding-top: 3%; font-size: 15px; color: black; display: flex; font-size: 17px;">
+                <div style="flex: 2;">
+
+                </div>
+                <div style="flex: 1;">
+                    <label>Grand Total:</label>
+                </div>
+                <div style="flex: 1;">
+                    <span> ${{getTotal()}}</span>
+                </div>
+            </div>
+
+        </div>
+        <div style="padding-top: 3%; display: flex; justify-content: center; width: 100%;">           
+            <span>
+                <input type="submit" class="button" value="Confirm" style="font-size: 15px;flex:1">
+            </span>
+        </div>
+    </form>
+</div>

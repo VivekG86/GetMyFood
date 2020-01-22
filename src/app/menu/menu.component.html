@@ -1,0 +1,104 @@
+<div class="container">
+    <!-- #menuForm="ngForm" -->
+    <form (submit)="onSubmit()" class="fullWidth wheatBackgrnd">
+        <div class="fullWidth flexDisplay">
+            <div class="headerFlex">
+                <span>Current Location: {{location}} -</span>
+                <a [routerLink]="['/Home', username]">change</a>
+            </div>
+            <div class="flexHeaderBlack">
+                <h1>Menu Items</h1>
+            </div>
+            <div class="flexHeaderBlack">
+                <span>Hello {{username}}
+                    <a routerLink="/Login">(Log Out)</a>
+                </span>
+            </div>
+        </div>
+        <div>
+            <div class="divBorderBlack">
+                <div class="divFlexPaddingTop">
+                    <div class="divFlexRow">
+                        <label>Type:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <select id="Type" selectedvalue="select" class="divFlexRow width70"                            
+                            #myType (change)='onOptionsSelectedType(myType.value)'>
+                            <option value="select">select</option>
+                            <option *ngFor="let type of types; let i = index" [value]="type">
+                                {{type}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="divFlexRow">
+                        <label>Name:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <select id="Menu" [(ngModel)]="selectedMenu" name="selectedMenu" class="divFlexRow width70"                            
+                            #myMenu (change)='onOptionsSelectedMenu(myType.value, myMenu.value)' selectedvalue="select">
+                            <option value="select">select</option>
+                            <option *ngFor="let menu of menuValues; let i = index" [value]="menu">
+                                {{menu}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flexDisplay">
+                    <div class="divFlexRow">
+                        <label>Price:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <input id="unitPrice" disabled type="text" name="unitPrice" [(ngModel)]="unitPrice">
+                    </div>
+                    <div class="divFlexRow">
+                        <label>Quantity:</label>
+                    </div>
+                    <div class="divFlexRow">
+                        <input id="quantityVal" name="quantityVal" [(ngModel)]="quantityVal" type="text">
+                    </div>
+
+                </div>
+                <div class="divPadding1">
+                    <input type="button" class="button btnWidth12" value="Add" (click)="addItems()">
+                </div>
+            </div>
+            <div class="divPadding3">
+                <div class="flex1 black">
+                    <h2>Your Cart</h2>
+                </div>
+                <div  class="flexDisplay">
+                    <div class="flex-row-head">Name</div>
+                    <div class="flex-row-head">Price</div>
+                    <div class="flex-row-head">Quantity</div>
+                    <div class="flex-row-head">Total Price</div>
+                    <div class="flex-row-head"></div>
+                </div>
+                <div *ngFor="let items of cartItems; let i = index;" class="displayFlex">
+                    <div class="flex1 flex-row">
+                        {{items.Name}}
+                    </div>
+                    <div class="flex1 flex-row">
+                        ${{items.Price}}
+                    </div>
+                    <div class="flex1 flex-row">
+                        {{items.Quantity}}
+                    </div>
+                    <div class="flex1 flex-row">
+
+                        ${{items.TotalPrice}}
+                    </div>
+                    <div class="flex1 flex-row">
+                        <button type="button" (click)="deleteRow(i)">Delete
+
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="divPadding3">
+                <input type="submit" class="button btnWidth15" value="Check Out">
+            </div>
+        </div>
+    </form>
+</div>

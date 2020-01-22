@@ -1,0 +1,12 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" class="fullWidth">
+        <h1>Welcome {{username}}</h1>
+        <div class="form-content">
+            <input id="zipcode" [(ngModel)]="zipcode" name="zipcode" placeholder="Enter your location Zip Code"
+                type="search" class="font90Center">
+        </div>
+        <div>            
+            <button type="submit" class="button btnwidth50">Go</button>            
+        </div>
+    </form>
+</div>
